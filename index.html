@@ -147,29 +147,31 @@
 
 
                 <!-- Секция с анкетой гостя -->
+        <!-- Секция с анкетой гостя -->
         <section class="rsvp-section">
             <div class="rsvp-container">
-                <img src="12.PNG" alt="RSVP" class="rsvp-title-image">
+                <img src="12.png" alt="RSVP" class="rsvp-title-image">
                 
                 <p class="rsvp-text">
-                    К сожалению, из-за ограничений площадки по количеству гостей, мы не сможем пригласить детей на свадьбу и позаботиться об их досуге. Пожалуйста, оставьте малышей в надежных руках 🤍
+                    К сожалению, из-за ограничений площадки по количеству гостей, мы не сможем пригласить детей на свадьбу и позаботиться об их досуге.
                 </p>
                 
-                <img src="13.PNG" alt="Guest form" class="rsvp-subtitle-image">
+                <img src="13.png" alt="Guest form" class="rsvp-subtitle-image">
                 
-                <form class="rsvp-form">
-                    <!-- Имя и фамилия -->
+                <!-- Форма обратной связи -->
+                <form class="rsvp-form" id="weddingForm" onsubmit="submitForm(event)">
+                    <!-- Имя и фамилия (обязательное) -->
                     <div class="form-group">
-                        <label class="form-label">Ваши имя и фамилия</label>
-                        <input type="text" class="form-input" placeholder="Иван Иванов">
+                        <label class="form-label">Ваше имя и фамилия</label>
+                        <input type="text" name="fullname" class="form-input" placeholder="Иван Иванов" required>
                     </div>
                     
-                    <!-- Планируете ли присутствовать -->
+                    <!-- Планируете ли присутствовать (обязательное) -->
                     <div class="form-group">
                         <label class="form-label">Планируете ли Вы присутствовать на свадьбе?</label>
                         <div class="radio-group">
                             <label class="radio-label">
-                                <input type="radio" name="attendance" value="yes" checked>
+                                <input type="radio" name="attendance" value="yes" checked required>
                                 <span>Да, с удовольствием!</span>
                             </label>
                             <label class="radio-label">
@@ -179,21 +181,88 @@
                         </div>
                     </div>
                     
-                    <!-- Имя второй половинки -->
+                    <!-- Имя второй половинки (необязательное) -->
                     <div class="form-group">
-                        <label class="form-label">Имя и фамилия вашей второй половинки</label>
-                        <input type="text" class="form-input" placeholder="Мария Иванова">
+                        <label class="form-label">
+                            Имя и фамилия вашей второй половинки 
+                            <span style="font-weight: 300; font-style: italic; color: rgba(74, 74, 74, 0.6);"></span>
+                        </label>
+                        <input type="text" name="companion" class="form-input" placeholder="Мария Иванова">
                     </div>
                     
-                    <!-- Комментарий о диете -->
+                    <!-- Комментарий о диете (необязательное) -->
                     <div class="form-group">
-                        <label class="form-label">Пожалуйста, оставьте комментарий, если у вас аллергия или вы придерживаетесь строгой диеты</label>
-                        <textarea class="form-textarea" rows="3" placeholder="Например: непереносимость глютена, аллергия на арахис"></textarea>
+                        <label class="form-label">
+                            Пожалуйста, оставьте комментарий, если у вас аллергия или вы придерживаетесь строгой диеты 
+                            <span style="font-weight: 300; font-style: italic; color: rgba(74, 74, 74, 0.6);"></span>
+                        </label>
+                        <textarea name="diet" class="form-textarea" rows="3" placeholder="Например: непереносимость глютена, аллергия на арахис"></textarea>
                     </div>
-                    <button type="submit" class="submit-button">Отправить</button>
+                    
+                    <!-- Скрытое поле для защиты от спама -->
+                    <input type="hidden" name="source" value="wedding_invitation">
+                    
+                    <!-- Кнопка отправки -->
+                    <button type="submit" class="submit-button" id="submitBtn">Отправить</button>
                 </form>
+                
+                <!-- Сообщение об успешной отправке (скрыто по умолчанию) -->
+                <div id="successMessage" style="display: none; text-align: center; padding: 30px 20px; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #4a4a4a; background-color: #f9f9f9; border-radius: 8px; margin-top: 20px;">
+                    ✅ Спасибо! Ваш ответ принят.<br>
+                    До встречи на свадьбе!
+                </div>
             </div>
         </section>
+
+        <!-- Скрипт для отправки формы -->
+        <script>
+        async function submitForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            const successMessage = document.getElementById('successMessage');
+            
+            // Блокируем кнопку
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            
+            // Собираем данные формы
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Здесь нужно указать ваш URL от Google Apps Script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz5dtoPJCC3ijgSIlpWL8cBSjNRp4bT9q22LWLBQ6HKI2SrONyKO-vU6Xkkh91oaiUt/exec';
+            
+            try {
+                // Отправляем данные на Google Apps Script
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(data)
+                });
+                
+                // Показываем сообщение об успехе и скрываем форму
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('❌ Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами.');
+                
+                // Возвращаем кнопку в исходное состояние
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
+        </script>
     </div>
     
     <script src="script.js"></script>
