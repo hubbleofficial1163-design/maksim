@@ -66,7 +66,7 @@ body {
 
 .names {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 400;
     color: #ffffff;
     letter-spacing: 4px;
@@ -74,6 +74,7 @@ body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
     opacity: 0;
     animation: slideFromCenter 1.5s ease forwards;
+    
 }
 
 /* Invitation Text Section */
@@ -88,7 +89,7 @@ body {
     font-style: italic;
     font-size: 1.2rem;
     font-weight: 300;
-    color: #4a4a4a;
+    color: #ffffff;
     margin-bottom: 40px;
     line-height: 1.5;
     opacity: 0;
@@ -880,12 +881,16 @@ body {
     font-size: 1rem;
     font-weight: 400;
     color: #333;
-    padding: 10px 0;
+    padding: 8px 0 2px 0; /* Нормальные отступы как у input */
     border: none;
     border-bottom: 1px solid rgba(74, 74, 74, 0.3);
     background: transparent;
     resize: vertical;
-    min-height: 80px;
+    min-height: 40px; /* Минимальная высота как у обычного поля */
+    height: 40px; /* Фиксированная высота */
+    max-height: 80px; /* Но можно растянуть */
+    line-height: 20px; /* Фиксированная высота строки */
+    overflow-y: auto;
     transition: border-color 0.3s ease;
 }
 
@@ -987,17 +992,4 @@ body {
 .submit-button.visible {
     opacity: 1;
     transform: scale(1);
-
 }
-
-/* ПРИНУДИТЕЛЬНОЕ уменьшение расстояния */
-.palette-section {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-.gift-section {
-    padding-top: 0 !important;
-    margin-top: -100px !important; /* Отрицательный отступ подтянет секцию вверх */
-}
-
