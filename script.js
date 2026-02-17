@@ -1,20 +1,7 @@
-// Плавное появление элементов при загрузке
+// Плавное появление элементов при скролле
 document.addEventListener('DOMContentLoaded', function() {
-    // Анимация для первой секции
-    const firstSectionElements = document.querySelectorAll('.subtitle, .image-greeting, .date-text, .image-event-title, .special-text, .invitation-text-bottom');
     
-    firstSectionElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'scale(0.9)';
-        element.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
-        
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'scale(1)';
-        }, 300 + (index * 150));
-    });
-    
-    // Анимация для секций при скролле
+    // Настройка наблюдателя за появлением секций
     const observerOptions = {
         threshold: 0.3,
         rootMargin: '0px'
@@ -108,5 +95,5 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTimer();
     setInterval(updateTimer, 1000);
     
-    console.log('Свадебное приглашение Dmitry & Viktoria загружено');
+    console.log('Свадебное приглашение Maksim & Daria загружено');
 });
