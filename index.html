@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maksim & Daria - Свадебное приглашение</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-image">
+                <img src="1.jpg" alt="Dmitry & Viktoria">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="names">Maksim & Daria</h1>
+            </div>
+        </section>
+
+        <section class="invitation-text">
+            <p class="subtitle">Если в сердце живет любовь...</p>
+            
+            <!-- Заменяем текст на изображение 2.png -->
+            <div class="image-greeting">
+                <img src="2.png" alt="ДОРОГИЕ ГОСТИ!" class="greeting-image">
+            </div>
+            
+            <p class="date-text">
+                18 июля 2026 года состоится<br>
+                долгожданное событие
+            </p>
+            
+            <!-- Заменяем текст на изображение 3.png -->
+            <div class="image-event-title">
+                <img src="3.png" alt="ДЕНЬ НАШЕЙ СВАДЬБЫ!" class="event-title-image">
+            </div>
+
+                        <!-- Новые тексты -->
+            <p class="special-text">В этот особенный день мы хотим оказаться в окружении самых любимых и дорогих для нас людей!</p>
+            
+            <p class="invitation-text-bottom">С огромным удовольствием приглашаем Вас разделить с нами этот праздник!</p>
+        </section>
+
+                <!-- Новая секция с инициалами -->
+        <section class="initials-section">
+            <div class="initials-container">
+                <span class="initial-letter">D</span>
+                <img src="4.webp" alt="Decorative" class="initials-image">
+                <span class="initial-letter">V</span>
+            </div>
+            
+            <div class="venue-image-container">
+                <img src="5.png" alt="Venue text" class="venue-image">
+            </div>
+            
+            <div class="venue-address">
+                <p>Банкетный комплекс «Ляпота», зал «Хвощи»,<br>
+                г. Рязань, ул. Камыши - Хвощи, 10А</p>
+            </div>
+            
+            <a href="https://yandex.ru/maps/org/osobnyak_1857/65169290511/?ll=44.026369%2C56.329452&z=17" 
+               class="map-button" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                Посмотреть на карте
+            </a>
+        </section>
+
+
+                <!-- Секция с таймингом -->
+        <section class="timeline-section">
+            <div class="timeline-container">
+                <!-- Левая часть с иконками -->
+                <div class="timeline-icons">
+                    <img src="7.svg" alt="Icon" class="timeline-icon">
+                    <img src="6.svg" alt="Icon" class="timeline-icon">
+                </div>
+                
+                <!-- Вертикальная линия -->
+                <div class="timeline-divider"></div>
+                
+                <!-- Правая часть с текстом -->
+                <div class="timeline-text">
+                    <p class="timeline-item">- 15.00 сбор гостей</p>
+                    <p class="timeline-item">16.00 церемония</p>
+                </div>
+            </div>
+        </section>
+
+                <!-- Секция с палитрой -->
+        <section class="palette-section">
+            <div class="palette-container">
+                <div class="palette-images">
+                    <img src="8.png" alt="Palette" class="palette-image-left">
+                    <img src="9.jpg" alt="Style" class="palette-image-right">
+                </div>
+                
+                <p class="palette-text">
+                    Будем благодарны, если при выборе нарядов<br>
+                    на наше торжество вы придержитесь этой палитры
+                </p>
+            </div>
+        </section>
+
+                <!-- Секция с пожеланиями о подарках -->
+        <section class="gift-section">
+            <div class="gift-container">
+                <img src="10.png" alt="Gift" class="gift-image">
+                
+                <p class="gift-text">
+                    Мы просим вас не дарить нам цветы, так как мы не успеем насладиться их красотой на все 100%. Мы будем признательны, если вы поможете нам осуществить мечту о путешествии, подарив ваши пожелания в конверте.
+                </p>
+            </div>
+        </section>
+
+        <!-- Секция с таймером -->
+        <section class="timer-section">
+            <div class="timer-overlay"></div>
+            <div class="timer-container">
+                <h2 class="timer-date">18.07.2026</h2>
+                <p class="timer-text">До свадьбы осталось:</p>
+                
+                <div class="timer-countdown">
+                    <div class="timer-block">
+                        <span class="timer-number" id="days">00</span>
+                        <span class="timer-label">дней</span>
+                    </div>
+                    <div class="timer-block">
+                        <span class="timer-number" id="hours">00</span>
+                        <span class="timer-label">часов</span>
+                    </div>
+                    <div class="timer-block">
+                        <span class="timer-number" id="minutes">00</span>
+                        <span class="timer-label">минут</span>
+                    </div>
+                    <div class="timer-block">
+                        <span class="timer-number" id="seconds">00</span>
+                        <span class="timer-label">секунд</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+                <!-- Секция с анкетой гостя -->
+        <section class="rsvp-section">
+            <div class="rsvp-container">
+                <img src="12.png" alt="RSVP" class="rsvp-title-image">
+                
+                <p class="rsvp-text">
+                    К сожалению, из-за ограничений площадки по количеству гостей, мы не сможем пригласить детей на свадьбу и позаботиться об их досуге.
+                </p>
+                
+                <img src="13.png" alt="Guest form" class="rsvp-subtitle-image">
+                
+                <form class="rsvp-form">
+                    <!-- Имя и фамилия -->
+                    <div class="form-group">
+                        <label class="form-label">Ваше имя и фамилия</label>
+                        <input type="text" class="form-input" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <!-- Планируете ли присутствовать -->
+                    <div class="form-group">
+                        <label class="form-label">Планируете ли Вы присутствовать на свадьбе?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="yes" checked>
+                                <span>Да, с удовольствием!</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="no">
+                                <span>К сожалению, не смогу</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Имя второй половинки -->
+                    <div class="form-group">
+                        <label class="form-label">Имя и фамилия вашей второй половинки</label>
+                        <input type="text" class="form-input" placeholder="Мария Иванова">
+                    </div>
+                    
+                    <!-- Комментарий о диете -->
+                    <div class="form-group">
+                        <label class="form-label">Пожалуйста, оставьте комментарий, если у вас аллергия или вы придерживаетесь строгой диеты</label>
+                        <textarea class="form-textarea" rows="3" placeholder="Например: непереносимость глютена, аллергия на арахис"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>/
