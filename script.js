@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Таймер обратного отсчета
     function updateTimer() {
-        const weddingDate = new Date('July 18, 2026 16:00:00').getTime();
+        const weddingDate = new Date('June 18, 2026 16:00:00').getTime();
         const now = new Date().getTime();
         const distance = weddingDate - now;
         
