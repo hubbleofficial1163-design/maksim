@@ -989,3 +989,15 @@ body {
     transform: scale(1);
 
 }
+
+/* ПРИНУДИТЕЛЬНОЕ уменьшение расстояния */
+.palette-section {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.gift-section {
+    padding-top: 0 !important;
+    margin-top: -100px !important; /* Отрицательный отступ подтянет секцию вверх */
+}
+
